@@ -16,6 +16,7 @@ import { useRouter } from 'next/navigation';
 import BlogPostViewer from './BlogPostViewer';
 import { marked } from 'marked';
 import ReactDOMServer from 'react-dom/server';
+import style from './page.module.css';
 const { Header, Footer, Sider, Content } = Layout;
 
 export default function Home({ tags, author_id }) {
@@ -49,8 +50,8 @@ export default function Home({ tags, author_id }) {
 				// 使用 querySelector 获取第一个 <img> 元素
 				var firstImage = doc.querySelector('img');
 				if (firstImage) {
-					firstImage.style.height = '100%';
-					firstImage.style.width = '100%';
+					firstImage.style.height = '88%';
+					firstImage.style.width = '88%';
 					firstImage.style.objectFit = 'cover';
 				}
 
@@ -63,7 +64,7 @@ export default function Home({ tags, author_id }) {
 								key={blog.id}
 							>
 								<div style={{ color: 'black' }}>
-									<h2>{blog.title}</h2>
+									<h2 style={{ marginTop: '0' }}>{blog.title}</h2>
 									<p
 										style={{
 											overflow: 'hidden', // 内容超出元素盒子时隐藏
@@ -174,7 +175,7 @@ export default function Home({ tags, author_id }) {
 				style={{
 					display: 'flex',
 				}}
-				split={<Divider />}
+				split={<Divider style={{ margin: '0', marginBottom: '17px' }} />}
 			>
 				{blogsDom}
 			</Space>

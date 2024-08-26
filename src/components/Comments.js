@@ -35,16 +35,20 @@ const Comments = ({ blogId }) => {
 
 	return (
 		<div>
-			<h2>评论</h2>
+			<h2>评论 {comments.length}</h2>
 			<Form form={form} onFinish={handleSubmit}>
 				<Form.Item
 					name="content"
 					rules={[{ required: true, message: 'Please enter your comment' }]}
 				>
-					<TextArea rows={4} placeholder="请评论" />
+					<TextArea style={{ resize: 'none' }} rows={6} placeholder="请评论" />
 				</Form.Item>
 				<Form.Item>
-					<Button type="primary" htmlType="submit">
+					<Button
+						
+						type="primary"
+						htmlType="submit"
+					>
 						评论
 					</Button>
 				</Form.Item>
@@ -53,6 +57,7 @@ const Comments = ({ blogId }) => {
 				<div key={comment.id}>
 					<p>
 						<b>{comment.author}:</b> {comment.content}
+                   
 					</p>
 				</div>
 			))}

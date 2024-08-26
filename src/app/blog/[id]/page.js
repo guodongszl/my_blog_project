@@ -11,6 +11,15 @@ import 'react-quill/dist/quill.snow.css';
 import Cookies from 'js-cookie';
 import { useGlobalContext } from '@/context/GlobalContext';
 import PersonalInfoCard from '@/components/PersonalInfoCard';
+import {
+	MoreOutlined,
+	EditOutlined,
+	DeleteOutlined,
+	UserOutlined,
+	MessageOutlined,
+	EyeOutlined,
+	EllipsisOutlined,
+} from '@ant-design/icons';
 
 export default function Page({ params }) {
 	const { id } = params;
@@ -52,7 +61,18 @@ export default function Page({ params }) {
 	return (
 		<div>
 			<PersonalInfoCard author_id={blog.author_id} />
-			<Card title={blog.title}>
+			<Card
+				title={
+					<>
+						{blog.title}
+
+						<span style={{ float: 'right' }}>
+							<EyeOutlined style={{ marginRight: 5 }} />
+							阅读量：{blog.read_count}
+						</span>
+					</>
+				}
+			>
 				{blog.build_type == 'RT' ? (
 					<ReactQuill
 						theme="snow"
